@@ -3,9 +3,9 @@ package com.github.hdghg.edgecenterrucdnmock;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collections;
@@ -39,6 +39,14 @@ public class EdgecenterrucdnmockApplication {
         response.put("token", "");
         response.put("servers", Collections.singletonList(Collections.singletonMap("hostname", "cdnmock")));
         return response;
+    }
+
+    @GetMapping("/streaming/videos/{id}/")
+    public Map<?, ?> video(@PathVariable("id") Long id, @RequestParam("download") Boolean download) {
+        Map<String, Object> result = new HashMap<>();
+        result.put("id", id);
+        result.put("status", "ready");
+        return result;
     }
 
 }
