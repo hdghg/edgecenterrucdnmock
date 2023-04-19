@@ -37,7 +37,7 @@ public class EdgecenterrucdnmockApplication {
         Map<String, Object> response = new HashMap<>();
         response.put("video", video);
         response.put("token", "");
-        response.put("servers", Collections.singletonList(Collections.singletonMap("hostname", "")));
+        response.put("servers", Collections.singletonList(Collections.singletonMap("hostname", "cdnmock")));
         return response;
     }
 
